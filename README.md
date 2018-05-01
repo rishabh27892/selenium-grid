@@ -19,6 +19,21 @@ Steps to setup Selenium Grid
 7. Launch the selenium grid in Machine B
     -Navigate to the location of jar file
     -execute "java -jar selenium-server-standalone-3.4.0.jar -role webdriver -hub http://<ip.of.machine.A>:4444/grid/register -port 5566"
+
+    IMPORTANT: while registering the Node, make sure to specify the capabilities, and also that it matches when called from the server i.e script
+    EX- "java -jar selenium-server-standalone-3.4.0.jar -role webdriver -hub 
+    http://<ip.of.machine.A>:4444/grid/register -port 5566 -browser browserName=firefox,platform=LINUX"
+    AT THE SAME TIME, MAKE SURE WHEN SETING THE DRIVER EX-
+    "
+    desired_caps = {'platform': 'LINUX', 'browserName': 'firefox'}
+        self.driver = webdriver.Remote(
+            command_executor='http://127.0.0.1:4444/wd/hub',
+            desired_capabilities = desired_caps)
+    "
+
+     
     -you can use any port number
 6. Go to Selenium Grid Web interface and you should be able to see the updated console wiht Machine B details
     
+NOTE: you can access and execute browser from the hub grid console into the node (via GUI), but we want to be able to run script in hub to execute in
+     multiple nodes at the same time. 
