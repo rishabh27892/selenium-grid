@@ -4,8 +4,8 @@ import sys
 try:
     if (os.environ['TEST']):
         variable = str(os.environ['TEST'])
-        if (str(os.environ['TEST']) == "true"):
-            print ("3rd the value of Test is " + str(os.environ['TEST']))
+        if (os.environ['TEST'] == "true"):
+            print ("3rd the value of Test is " + os.environ['TEST'])
         else:
             print ("4th the value of Test is " + str(os.environ['TEST']))
 except:
