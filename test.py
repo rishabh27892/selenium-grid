@@ -3,7 +3,7 @@ import sys
 
 try:
     if (os.environ['TEST']):
-        if (str(os.environ['TEST']) == "True"):
+        if (str(os.environ['TEST']) == True):
             print ("3rd the value of Test is " + str(os.environ['TEST']))
         else:
             print ("4th the value of Test is " + str(os.environ['TEST']))
